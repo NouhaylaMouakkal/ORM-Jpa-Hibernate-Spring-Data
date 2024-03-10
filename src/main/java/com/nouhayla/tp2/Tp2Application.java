@@ -21,7 +21,7 @@ public class Tp2Application {
     private PatientRepository patientRepository;
 
     @Autowired
-    private RDVRepository rdvRepository; // Corrected
+    private RDVRepository rdvRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(Tp2Application.class, args);
@@ -29,7 +29,7 @@ public class Tp2Application {
 
     @Bean
     CommandLineRunner start(IHospital iHospital, PatientRepository patientRepository, MedecinRepository medecinRepository,
-                            RDVRepository rdvRepository, ConsultationRepository consultationRepository) { // Corrected
+                            RDVRepository rdvRepository, ConsultationRepository consultationRepository) { 
         return args -> {
             // Patient
             patientRepository.save(new Patient(null, "Nouhayla", new Date(), true, 360, null));
@@ -49,11 +49,11 @@ public class Tp2Application {
             RDV rdv = new RDV();
             rdv.setDate(new Date());
             rdv.setStatus(StatusRDV.CONFIRMED);
-            rdv.setPatient(patientRepository.findById(1L).orElse(null)); // Corrected
-            rdv.setMedecin(medecinRepository.findById(1L).orElse(null)); // Corrected
+            rdv.setPatient(patientRepository.findById(1L).orElse(null)); 
+            rdv.setMedecin(medecinRepository.findById(1L).orElse(null)); 
             rdvRepository.save(rdv); // Corrected
 
-            RDV rdv1 = rdvRepository.findById(1L).orElse(null); // Corrected
+            RDV rdv1 = rdvRepository.findById(1L).orElse(null); 
 
             // Consultation
             Consultation consultation = new Consultation();
