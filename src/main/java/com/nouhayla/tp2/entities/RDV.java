@@ -21,6 +21,6 @@ public class RDV {
     private Patient patient;
     @ManyToOne
     private Medecin medecin;
-    @OneToOne(mappedBy = "rdvs")
+    @OneToOne(mappedBy = "rdv")
     private Consultation consultation;
 }
